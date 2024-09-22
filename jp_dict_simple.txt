@@ -1,0 +1,283 @@
+は  w a
+へ  e
+ア  a
+イ  i
+ウ  u
+エ  e
+オ  o
+カ  k a
+キ  k i
+キャ  k i a
+キュ  k i u
+キョ  k i o
+ク  k u
+クァ  k u a
+クィ  k u i
+クェ  k u e
+クォ  k u o
+ケ  k e
+コ  k o
+サ  s a
+シ  sh i
+シャ  sh a
+シュ  sh u
+ショ  sh o
+ス  s u
+スァ  s u a
+スィ  s u i
+スェ  s u e
+スォ  s u o
+セ  s e
+ソ  s o
+タ  t a
+チ  ch i
+チャ  ch a
+チュ  ch u
+チョ  ch o
+ツ  ts u
+ツァ  ts a
+ツィ  ts i
+ツェ  ts e
+ツォ  ts o
+テ  t e
+ト  t o
+ナ  n a
+ニ  ni
+ニャ  ni a
+ニュ  ni u
+ニョ  ni o
+ヌ  nu
+ヌァ  nu a
+ヌィ  nu i
+ヌェ  nu e
+ヌォ  nu o
+ネ  n e
+ノ  n o
+ハ  ha
+ヒ  hi
+ヒャ  hi a
+ヒュ  hi u
+ヒョ  hi o
+フ  f u
+ファ  f a
+フィ  f i
+フェ  f e
+フォ  f o
+ヘ  he
+ホ  ho
+マ  m a
+ミ  m i
+ミャ  m i a
+ミュ  m i u
+ミョ  m i o
+ム  m u
+メ  m e
+モ  m o
+ヤ  i a
+ユ  i u
+ヨ  i o
+ラ  ra
+リ  ri
+リャ  ri a
+リュ  ri u
+リョ  ri o
+ル  ru
+レ  re
+ロ  ro
+ワ  w a
+ヲ  o
+ガ  g a
+ギ  g i
+ギャ  g i a 
+ギュ  g i u 
+ギョ  g i o 
+グ  g u
+ゲ  g e
+ゴ  g o
+ザ  z a
+ジ  ji
+ジャ  ji a
+ジュ  ji u
+ジョ  ji o
+ズ  z u
+ゼ  z e
+ゾ  z o
+ダ  d a
+ヂ  d i
+ヅ  d zu
+デ  d e
+ド  d o
+バ  b a
+ビ  b i
+ビャ  b i a
+ビュ  b i u
+ビョ  b i o
+ブ  b u
+ベ  b e
+ボ  b o
+パ  p a
+ピ  p i
+ピャ  p i a
+ピュ  p i u
+ピョ  p i o
+プ  p u
+ペ  p e
+ポ  p o
+ン  nn
+アン  an
+イン  in
+ウン  un
+エン  en
+オン  on
+カン  k an
+キン  k in
+キャン  k i an
+キュン  k i un
+キョン  k i on
+クン  k un
+クァン  k u an
+クィン  k u in
+クェン  k u en
+クォン  k u on
+ケン  k en
+コン  k on
+サン  s an
+シン  sh in
+シャン  sh an
+シュン  sh un
+ション  sh on
+スン  s un
+スァン  s u an
+スィン  s u in
+スェン  s u en
+スォン  s u on
+セン  s en
+ソン  s on
+タン  t an
+チン  ch in
+チャン  ch an
+チュン  ch un
+チョン  ch on
+ツン  ts un
+ツァン  ts an
+ツィン  ts in
+ツェン  ts en
+ツォン  ts on
+テン  t en
+トン  t on
+ナン  n an
+ニン  ni in
+ニャン  ni an
+ニュン  ni un
+ニョン  ni on
+ヌン  nun
+ヌァン  nu an
+ヌィン  nu in
+ヌェン  nu en
+ヌォン  nu on
+ネン  n en
+ノン  n on
+ハン  han
+ヒン  hin
+ヒャン  hi an
+ヒュン  hi un
+ヒョン  hi on
+フン  f un
+ファン  f an
+フィン  f in
+フェン  f en
+フォン  f on
+ヘン  hen
+ホン  hon
+マン  m an
+ミン  m in
+ミャン  m i an
+ミュン  m i un
+ミョン  m i on
+ムン  m un
+メン  m en
+モン  m on
+ヤン  i an
+ユン  i un
+ヨン  i on
+ラン  ran
+リン  rin
+リャン  ri an
+リュン  ri un
+リョン  ri on
+ルン  run
+レン  ren
+ロン  ron
+ワン  w an
+ヲン  on
+ガン  g an
+ギン  g in
+ギャン  g i an
+ギュン  g i un
+ギョン  g i on
+グン  g un
+ゲン  g en
+ゴン  g on
+ザン  z an
+ジン  j in
+ジャン  j an
+ジュン  j un
+ジョン  j on
+ズン  z un
+ゼン  z en
+ゾン  z on
+ダン  d an
+ヂン  j in
+ヅン  j z un
+デン  d en
+ドン  d on
+バン  b an
+ビン  b in
+ビャン  b i an
+ビュン  b i un
+ビョン  b i on
+ブン  b un
+ベン  b en
+ボン  b on
+パン  p an
+ピン  p in
+ピャン  p i an
+ピュン  p i un
+ピョン  p i on
+プン  p un
+ペン  p en
+ポン  p on
+ウェ  w e
+ウォ  w o
+ウィン w in
+ウェン  w en
+ウォン  w on
+ヴ  vu
+ヴァ  v a
+ヴィ  v i
+ヴェ  v e
+ヴォ  v o
+ヴャ  v a
+ヴュ  v u
+ヴョ  v i o
+ヴァン  v an
+ヴィン  v in
+ヴェン  v en
+ヴォン  v on
+ヴャン  v an
+ヴュン  v un
+ヴョン  v i on
+シェ  sh e
+ジェ  j e
+ディ  d i
+シェン  sh en
+ディン  d in
+シェン  sh en
+ジェン  j en
+ディン  d in
+チェ  ch e
+チェン  ch en
+ルィ  ri u
+ルィン  ri un
+ティ  ch i
+ティン  ch in
