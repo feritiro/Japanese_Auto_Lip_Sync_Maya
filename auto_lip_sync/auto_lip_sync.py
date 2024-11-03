@@ -1,11 +1,11 @@
-'''
-How to run:
-1. Add the auto_lip_sync folder to your Maya scripts folder (username\Documents\maya\*version*\scripts).
-2. Insert your conda.exe path to the code (usually found in: C:\Users\username\miniconda3\Scripts\conda.exe)
-3. To start the auto lipsync tool in Maya, execute the following lines of code in the script editor:
-    import auto_lip_sync
-    auto_lip_sync.start()
-'''
+
+# How to run:
+# 1. Add the auto_lip_sync folder to your Maya scripts folder (username\Documents\maya\*version*\scripts).
+# 2. Insert your conda.exe path to the code (usually found in: C:\Users\username\miniconda3\Scripts\conda.exe)
+# 3. To start the auto lipsync tool in Maya, execute the following lines of code in the script editor:
+#    import auto_lip_sync
+#    auto_lip_sync.start()
+
 import shutil
 import os
 import sys
@@ -21,7 +21,7 @@ from collections import OrderedDict
 from PySide2 import QtCore, QtGui, QtWidgets
 
 # Full conda path
-conda_exe = r'C:\Users\ferni\miniconda3\Scripts\conda.exe'
+conda_exe = 'C:/Users/ferni/miniconda3/Scripts/conda.exe'
 
 # Import Textgrid. If the module doesn't exist let the user decide if they want to download the dependencies zip.
 try:
@@ -279,6 +279,7 @@ class LipSyncDialog(QtWidgets.QDialog):
         if selected_language == "English":
             self.LANGUAGE_PATH = self.USER_SCRIPT_DIR + \
                 "montreal-forced-aligner/pretrained_models/english.zip"
+            print("LANGUAGE_PATH: ", self.LANGUAGE_PATH)
             self.LEXICON_PATH = self.USER_SCRIPT_DIR + "librispeech-lexicon.txt"
             self.phone_dict = {
                 "AA0": "AA", "AA1": "AA", "AA2": "AA", "AE0": "AA", "AE1": "AA", "AE2": "AA",
