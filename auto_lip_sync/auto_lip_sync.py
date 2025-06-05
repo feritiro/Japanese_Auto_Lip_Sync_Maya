@@ -1,8 +1,8 @@
 
 # How to run:
 # 1. Add the auto_lip_sync folder to your Maya scripts folder (username\Documents\maya\*version*\scripts).
-# 2. Insert your conda.exe path to the code (usually found in: C:\Users\username\miniconda3\Scripts\conda.exe)
-# 3. To start the auto lipsync tool in Maya, execute the following lines of code in the script editor:
+# 2. Insert your conda.exe path to the code (usually found in: C:\Users\username\miniconda3\Scripts\conda.exe). Be sure of the dependencies for each virtual ambient.
+# 3. To start the auto lipsync tool in Maya, execute the following lines of code in the Script editor:
 #    import auto_lip_sync
 #    auto_lip_sync.start()
 
@@ -20,10 +20,10 @@ from shiboken2 import wrapInstance
 from collections import OrderedDict
 from PySide2 import QtCore, QtGui, QtWidgets
 
-# Full conda path
+# Insert your full conda path
 conda_exe = 'C:/Users/ferni/miniconda3/Scripts/conda.exe'
 
-# Import Textgrid. If the module doesn't exist let the user decide if they want to download the dependencies zip.
+# Import Textgrid module (kylebgorman/textgrid).
 try:
     import textgrid
 except ImportError:
@@ -70,8 +70,8 @@ class LipSyncDialog(QtWidgets.QDialog):
 
     MFA_PATH = USER_SCRIPT_DIR+"montreal-forced-aligner/bin"
     if os.path.exists(MFA_PATH) == False:
-        cmds.confirmDialog(title="Path doesn't exsist!",
-                           message="This path doesn't exsist: "+MFA_PATH)
+        cmds.confirmDialog(title="Path doesn't exist!",
+                           message="This path doesn't exist: "+MFA_PATH)
 
     SER_SCRIPT_PATH = USER_SCRIPT_DIR+"emotion-classifier/predict_script.py"
     SER_MODEL_PATH = USER_SCRIPT_DIR+"emotion-classifier/SER_model1.h5"
@@ -278,7 +278,7 @@ class LipSyncDialog(QtWidgets.QDialog):
         selected_language = self.language_combo_box.currentText()
         if selected_language == "English":
             self.LANGUAGE_PATH = self.USER_SCRIPT_DIR + \
-                "montreal-forced-aligner/pretrained_models/english.zip"
+                "montreal-forced-aligner/pretrained_models/english_us_arpa.zip"
             print("LANGUAGE_PATH: ", self.LANGUAGE_PATH)
             self.LEXICON_PATH = self.USER_SCRIPT_DIR + "librispeech-lexicon.txt"
             self.phone_dict = {
@@ -346,26 +346,24 @@ class LipSyncDialog(QtWidgets.QDialog):
             cmds.warning("Could not import sound file.")
         p_dialog.setValue(current_operation + 1)
 
-        # Nome do ambiente conda
+        # Speech Emotion Recognition ambient
         conda_environment = 'ser'
 
-        # Construa o comando para ativar o ambiente conda e, em seguida, executar o script como subprocesso
         print("SER_PATH: ", self.SER_PATH)
         print("sound_clip_path", self.sound_clip_path)
         command = [
             conda_exe, 'run', '-n', conda_environment, 'python', self.SER_SCRIPT_PATH,
-            '--model', self.SER_MODEL_PATH,  # Argumento do modelo
-            '--audio', self.sound_clip_path,   # Argumento do arquivo de áudio
-            '--output', self.SER_PATH  # Caminho do arquivo de saída
+            '--model', self.SER_MODEL_PATH,
+            '--audio', self.sound_clip_path,
+            '--output', self.SER_PATH
         ]
-        # Executar o comando e capturar a saída
         print("Comando:", command)
         subprocess.run(command)
         print("SER subprocess OK.")
 
+        # MFA ambient
         conda_environment = 'aligner'
 
-        # Construir o comando para ativar o ambiente conda e executar o mfa align
         command = (
             conda_exe + " run -n " + conda_environment + " mfa align " +
             self.INPUT_FOLDER_PATH + " " + self.LEXICON_PATH + " " +
@@ -376,26 +374,22 @@ class LipSyncDialog(QtWidgets.QDialog):
         process = subprocess.Popen(
             command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-        # Função auxiliar para decodificar a linha com 'utf-8' e ignorar erros
         def decode_line(line):
             try:
                 return line.decode('utf-8')
             except UnicodeDecodeError:
                 return line.decode('utf-8', errors='ignore')
 
-        # Capturando a saída padrão (stdout)
-        print("Capturando a saída padrão (stdout):")
+        print("stdout:")
         for line in process.stdout:
             if line.strip():
                 print("STDOUT:", decode_line(line))
 
-        # Capturando a saída de erro (stderr)
-        print("Capturando a saída de erro (stderr):")
+        print("stderr:")
         for line in process.stderr:
             if line.strip():
                 print("STDERR:", decode_line(line))
 
-        # Esperando o processo terminar
         process.wait()
 
         try:
@@ -415,12 +409,12 @@ class LipSyncDialog(QtWidgets.QDialog):
             with open(self.SER_PATH+"class.txt", 'r') as file:
                 emotion_shape = file.read().strip()
                 print(
-                    f'Conteúdo do arquivo class.txt: {emotion_shape}')
+                    f'class.txt content: {emotion_shape}')
         except FileNotFoundError:
-            print('O arquivo class.txt não foi encontrado.')
+            print('class.txt not found.')
         except Exception as e:
             print(
-                f'Ocorreu um erro ao tentar ler o arquivo class.txt: {e}')
+                f'Error when tried to read class.txt: {e}')
         return emotion_shape
 
     def import_sound(self):
@@ -439,7 +433,7 @@ class LipSyncDialog(QtWidgets.QDialog):
 
         self.delete_input_folder()
 
-        # Create folder
+        # Create temp folder
         os.mkdir(self.INPUT_FOLDER_PATH)
         sound_source = self.sound_clip_path
         text_source = self.text_file_path
