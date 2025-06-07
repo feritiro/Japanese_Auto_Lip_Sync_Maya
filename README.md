@@ -1,5 +1,8 @@
 # Auto Lip Sync Animation for Autodesk Maya
 
+![Auto Lip Sync Demo](scripts\test_sample/MayaAutoLipSync.gif)
+https://youtu.be/XVH0S4Lm_3M
+
 This project automates the creation of facial keyframe animations in Autodesk Maya based on audio input. It integrates forced phoneme alignment and speech emotion recognition (SER) to generate expressive and synchronized lip sync animations.
 
 ## Key Features
